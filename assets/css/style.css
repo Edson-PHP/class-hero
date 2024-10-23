@@ -1,0 +1,167 @@
+:root {
+    --background-color: black;
+    --text-color: white;
+    --highlight-color: chartreuse;
+    --button-background: #ffff00;
+    --button-hover: rgba(52, 152, 219, 0.4);
+    --wave-color: rgba(242, 244, 245, 0.4);
+    --border-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+main {
+    width: 100%;
+}
+
+.start, 
+.container {
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.container {
+    display: none;
+}
+
+.container h2 {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.start {
+    color: var(--text-color);
+}
+
+.start h1 {
+    margin-bottom: 20px;
+}
+
+#heroName {
+    padding: 6px 10px;
+}
+
+.nameHero {
+    padding: 6px 10px;
+    background: var(--highlight-color);
+    cursor: pointer;
+    border: none;
+}
+
+#heroName {
+    outline: none;
+}
+
+.life {
+    width: 250px;
+    height: 35px;
+    background-color: var(--text-color);
+    border: 2px solid var(--background-color);
+    margin: 15px;
+    position: relative;
+}
+
+.xp {
+    width: 0%;
+    height: 31px;
+    position: absolute;
+    background-color: var(--highlight-color);
+    transition: all .5s ease-in-out;
+}
+
+.action {
+    background-color: var(--button-background);
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.action:active {
+    position: relative;
+    top: 2px;
+}
+
+.result {
+    font-size: 24px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.action {
+    position: relative;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid var(--border-color);
+    background-color: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 5px;
+    outline: none;
+    transition: color 0.3s;
+}
+
+.action:hover {
+    background-color: var(--button-hover); 
+}
+
+.action::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: var(--wave-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: wave 2s infinite;
+    opacity: 0;
+}
+
+@keyframes wave {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .container h2 {
+        font-size: 18px;
+    }
+    .container h3 {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    body {
+        min-width: 320px;
+    }
+}
